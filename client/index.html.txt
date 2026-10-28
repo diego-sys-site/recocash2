@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#f7f7f7" />
+    <meta name="description" content="An independent Apple Cash screen simulation with no live reward or Apple affiliation. TikTok tracking honors visitor opt-outs and Global Privacy Control." />
+    <title>Apple Cash — Design Demo</title>
+    <link rel="icon" type="image/png" href="/optimized/favicon-48.5223208b1f08.png" />
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-latin.3100e775e861.woff2" crossorigin />
+    <link rel="preload" as="image" type="image/webp" href="/optimized/reward-card-600.21d241a6765f.webp" imagesrcset="/optimized/reward-card-300.656672ceb777.webp 300w, /optimized/reward-card-600.21d241a6765f.webp 600w, /optimized/reward-card-900.3592928c8f67.webp 900w" imagesizes="(max-width: 332px) calc(100vw - 32px), 300px" fetchpriority="high" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

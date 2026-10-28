@@ -1,0 +1,50 @@
+import { ArrowRight } from "lucide-react";
+import { trackFinalCta } from "@/lib/tiktok-pixel";
+import { DEVICE_IMAGE, RECO_LOGO } from "@/lib/optimized-assets";
+import { SessionCountdown } from "@/components/SessionCountdown";
+import { affiliateUrl } from "@/lib/affiliate";
+
+export function DevicePreview({ onContinue }: { onContinue: () => void }) {
+  function handleFinalCta() {
+    trackFinalCta();
+    onContinue();
+  }
+
+  return (
+    <div className="sample-content device-reference-panel">
+      <SessionCountdown />
+      <div className="device-reference-body">
+        <figure className="device-reference-artwork">
+          <img src={DEVICE_IMAGE.src} srcSet={DEVICE_IMAGE.srcSet} sizes={DEVICE_IMAGE.sizes} alt="Reco Social and Apple Cash artwork with a connecting ribbon" width={DEVICE_IMAGE.width} height={DEVICE_IMAGE.height} decoding="async" />
+        </figure>
+        <h2 id="device-title">Device Verification Required</h2>
+        <p className="device-reference-subtitle">One Last Step to Claim</p>
+        <div className="sample-offer-instructions">
+          <h3>INSTRUCTIONS</h3>
+          <ol>
+            <li><span className="instruction-number" aria-hidden="true">1</span><p>Download <strong>Reco Social</strong>.</p></li>
+            <li><span className="instruction-number" aria-hidden="true">2</span><p>Create your <strong>free account</strong>.</p></li>
+            <li><span className="instruction-number" aria-hidden="true">3</span><p>Complete <strong>2 offers</strong>.</p></li>
+          </ol>
+        </div>
+        <div className="device-reference-app">
+          <div className="device-app-heading">
+            <span className="device-app-icon is-app-logo"><img src={RECO_LOGO.src} alt="Reco Social logo" width={48} height={48} decoding="async" /></span>
+            <div className="device-app-copy"><h3>Reco Social</h3><p>Required</p></div>
+          </div>
+          <a
+            id="final-cta-button"
+            className="device-app-button"
+            style={{ textDecoration: "none" }}
+            href={affiliateUrl()}
+            target="_blank"
+            rel="noopener"
+            onClick={handleFinalCta}
+          >
+            <ArrowRight size={16} aria-hidden="true" /> Download &amp; Open App
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}

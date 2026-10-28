@@ -1,0 +1,41 @@
+import { lazy, Suspense } from "react";
+import { Route, Switch } from "wouter";
+import ErrorBoundary from "./components/ErrorBoundary";
+import Home from "./pages/Home";
+
+const NotFound = lazy(() => import("./pages/NotFound"));
+
+function NotFoundLoadingFallback() {
+  return (
+    <main
+      className="flex min-h-screen items-center justify-center p-8"
+      aria-busy="true"
+      aria-live="polite"
+    >
+      <p role="status">Loading the requested page…</p>
+    </main>
+  );
+}
+
+function Router() {
+  return (
+    <Suspense fallback={<NotFoundLoadingFallback />}>
+      <Switch>
+        <Route path={"/"} component={Home} />
+        <Route path={"/404"}>{() => <NotFound />}</Route>
+        {/* Final fallback route */}
+        <Route>{() => <NotFound />}</Route>
+      </Switch>
+    </Suspense>
+  );
+}
+
+function App() {
+  return (
+    <ErrorBoundary>
+      <Router />
+    </ErrorBoundary>
+  );
+}
+
+export default App;
